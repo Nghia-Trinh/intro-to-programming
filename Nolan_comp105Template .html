@@ -1,0 +1,107 @@
+<!DOCTYPE html>
+<html>
+<head>
+   <!-- JavaScript Mini-Lab: Lucky Numbers (Replace this line with appropriate info.)
+        Author: Nolan (Replace this line with appropriate info.)
+        With assistance from: Dr, ALyce; Revaz, Kate, Marissa, Madeline (TAs, instructors, classmates)
+    -->
+   <meta charset="UTF-8">
+   <title>Border/Tab Title</title>
+
+<script>
+
+/******
+   Function definitions go here, in script tags in the HEAD section.
+   Every function should have a comment saying something about what its
+   purpose is (e.g., "Sort students by last name") and what parameters it
+   expects, if any.
+       YOU MAY REPLACE THIS COMMENT BLOCK ONCE YOU HAVE WRITTEN
+       APPROPRIATELY-COMMENTED FUNCTIONS HERE.
+ ******/
+
+
+
+// Print last modification date (called at bottom of page).
+
+
+function showMathExamples_luckynum()
+{
+//Lucky Number function
+    var randNumber = Math.random();
+    var newRandNum = Math.floor(randNumber * 100);
+
+//Lucky Letter Function
+    var randomletter = Math.random();
+    var newrandletteer = Math.floor(randomletter * 26);
+    var alphabet = "ABCDEFGHIJKLMNOPQRSTUVWXYZ";
+    var letter = alphabet.charAt(newrandletteer);
+
+    
+
+    //Random 3 letter word generator
+    var randomword1 = Math.random();
+    var newRandomword = Math.floor(randomword1 * 5);
+    var vowel = "AEIOU";
+    var vowel_letter = vowel.charAt(newRandomword);
+
+
+    var randomword2 = Math.random();
+    var newRandomword1 = Math.floor(randomword2 * 21);
+    var constonant = "BCDFGHJKLMNPQRSTVWXYZ"
+    var constonant_letter = constonant.charAt(newRandomword1);
+
+    var randomword3 = Math.random();
+    var newRandomword2 = Math.floor(randomword3 * 21);
+    var constonant1 = "BCDFGHJKLMNPQRSTVWXYZ"
+    var constonant_letter1 = constonant1.charAt(newRandomword2);
+
+    alert ("Welcome to this Lucky page: \n" + "Your random number is: " + newRandNum + "\n" +
+    "Your random letter is: " + letter + "\n" + "Your random word is:" + constonant_letter + vowel_letter + constonant_letter1);
+    output.innerHTML="Welcome to this Lucky page: \n" + "Your random number is: " + newRandNum + "\n" +
+    "Your random letter is: " + letter + "\n" + "Your random word is:" + constonant_letter + vowel_letter + constonant_letter1;
+
+    /**    var newRandNum = Math.floor(randNumber * 26);
+    alert("The original random number is: " + randNumber + ".\n" +
+    "Rounded, it is: " + Math.round(randNumber) + ".\n" +
+    "Its floor is: " + Math.floor(randNumber) + ".\n" +
+    "Its ceiling is: " + Math.ceil(randNumber) + ".");
+    **/
+
+}
+
+function setLastModDate()
+{
+    lastMod.innerHTML="<em>This page was last updated on " +
+        document.lastModified + ".</em>";
+}
+
+</script>
+
+</head>
+
+
+
+
+
+<body>
+<!-- HTML content goes inside the BODY tags.  -->
+<!-- Keep this at the bottom of every page you create.  -->
+
+
+
+<p id="lastMod"></p>
+<script> setLastModDate(); </script>
+
+
+
+
+<p>
+    <input type = "button" value="Generate the Lucky Page" onclick=" showMathExamples_luckynum() " > 
+</p>
+
+<hr>
+<p id="output"> Your Lucky Numbers will be here!</p>
+<hr>
+
+</body>
+</html>

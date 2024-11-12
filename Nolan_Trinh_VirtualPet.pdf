@@ -1,0 +1,204 @@
+<!DOCTYPE html>
+<html>
+
+<head>
+<title>Virtual Pet</title>
+
+<script type="text/javascript">
+        //var state.value;
+        //var state;
+    //Function used to show real time meter
+    function showTime()
+    {
+        document.getElementById('timeP').innerHTML = Date();
+    }
+    setInterval("showTime()", 1000);
+
+
+    function initialize()
+    {
+        counter.value= 0;
+        state.value = "Calm";
+        setInterval("updatestate()", 1000); //This would call a function evey 1000 millisec
+        doIt();
+    }
+    
+    function updatestate() //This would change the value of the number added to the counter textbox
+    {
+      counter.value ++;
+      //if function to be added , based on probability and current state.
+      //now update action and sound to match new state
+      //var randomVal = Math.random();
+      doIt();
+    }
+
+
+    //This function will display the action and sound tht match the current state
+    function doIt ()
+    {
+      if ( state.value == "Happy" )
+      {
+	   petAction.value = "Woof woof";
+      }
+      else if ( state.value == "Angry" )
+      {
+	   petAction.value = "Snarl";
+      }
+      else if ( state.value == "Depressed" )
+      {
+	   petAction.value = "Snoring";  
+      }
+      else if ( state.value == "Calm" )
+      {
+	   petAction.value = "Napping";  
+      }
+      else if( state.value == "Silent")
+      {
+    petAction.value = "Flexxing out";
+      }
+      else   // state.value is neither hungry nor asleep
+	  petAction.value = "Quiet";
+    }
+
+    function Pat()
+    {
+      var randomVal = Math.random();
+      if ( state.value == "Calm" && randomVal < 0.4)
+      {
+        state.value = "Happy";
+        doIt();
+      }
+      else if ( state.value == "Calm" && randomVal > 0.4)
+      {
+        state.value = "Provoked";
+        doIt();
+      }
+      else if ( state.value == "Happy" && randomVal < 0.2)
+      {
+        state.value = "Provoked";
+        doIt();
+      }
+      else if ( state.value == "Happy" && randomVal > 0.2)
+      {
+        state.value = "Calm";
+        doIt();
+      }
+      else if ( state.value == "Angry" )
+      {
+        state.value = "Calm";
+        doIt();
+      }  
+    }
+
+    function Ignore()
+    {
+      var randomVal1 = Math.random();
+      if ( state.value == "Happy")
+      {
+        state.value = "Depressed";
+        doIt();
+      }
+      else if ( state.value == "Depressed"  && randomVal1 < 0.2 )
+      {
+        state.value = "Provoked";
+        doIt();
+      }
+      else if ( state.value == "Depressed" && randomVal1 > 0.2)
+      {
+        state.value = "Angry";
+        doIt();
+      }
+      else if ( state.value == "Provoked" && randomVal1 > 0.3)
+      {
+        state.value = "Silent";
+        doIt();
+      }
+      else if ( state.value == "Provoked" && randomVal1 < 0.3)
+      {
+        state.value = "Angry";
+        doIt();
+      }
+    }
+
+</script>
+<!--
+  function Ignore()
+    {
+      if ( state.value == "Happy" )
+      {
+        state.value = "Depressed";
+      }
+      else if ( state.value == "Depressed" )
+      {
+        state.value = "Provoked";
+      }
+      else if ( state.value == "Provoked" )
+      {
+        state.value = "Angry";
+      }
+      doIt();
+    }
+-->
+</head>
+
+<body onload="initialize()"> <!--the initialize() is the function Initilization name that will be given-->
+        <br>
+        <h1>Date and Time is:</h1>
+
+        <p id="timeP">
+        &nbsp;
+        </p>
+
+        <H2>
+        <FONT style="color:#009966;">Tralfaz, the Wonder Dog</FONT>
+        </H2>
+
+
+
+        <center><div class="center"><IMG SRC="dog.gif" WIDTH=135 HEIGHT=125 ALIGN=middle> </div></center>
+        <center><P>
+            <B>Pet Movement:</B> 
+            <INPUT TYPE=text ID=petAction SIZE=35>
+        </p></center>
+            
+
+        <center><P>
+            <B>Counter:</B> 
+            <INPUT TYPE=text ID=counter  SIZE=35> <!-- This would add a box for addinng a counter for the seconds the pet will chnge states-->
+        </p>
+        <P><B>State:</B> 
+            <INPUT TYPE=text ID=state SIZE=35>  <!-- This would add a box for addinng a counter for the seconds the pet will chnge states-->
+        </p></center>
+
+
+
+        <center><P> 
+            <input type=button id=Pat value="Pat the dog"
+                onclick = "Pat()" >
+            <input type=button id=Ignore value="Ignore the dog"
+                onclick="Ignore()">
+        </p></center>
+
+
+<!--
+        <table style="width:100%">
+            <tr>
+                <th>State</th>
+                <th>Response 1</th>
+                <th>Response 2</th>
+            </tr>
+              <tr>
+                <td>Happy</td>
+                <td>Woof Woof</td>
+                <td>Wag Tail</td>
+              </tr>
+              <tr>
+                <td>Angry</td>
+                <td>Snarl</td>
+                <td>Show teeth</td>
+              </tr>
+        </table>
+-->
+</body>
+
+</html>

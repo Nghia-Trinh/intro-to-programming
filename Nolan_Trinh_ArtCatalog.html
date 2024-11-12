@@ -1,0 +1,80 @@
+<!DOCTYPE html>
+<html>
+<head>
+    <title> Mini Lab: Art Catalog</title>
+
+    <script>
+        
+        function ArtEntry(theImageURL, theArtistParameter, theDateParameter, theLocationParameter) 
+        {
+                // Set the attributes of the object from the parameters.
+            this.imageURL = theImageURL;
+            this.artist = theArtistParameter; 
+            this.date = theDateParameter;
+            this.currentLocation = theLocationParameter;
+            this.selected = false;
+        }
+        function toString(theRecord)
+    {
+        return "\n" + imageString(theRecord.imageURL) + " " + theRecord.artist + " " + theRecord.date + " " + theRecord.currentLocation + " " + theRecord.selected + "\n";
+    }
+        // This function creates an array of course/grade entries.
+        function makeArtArray()       
+    {
+            // Construct the array, fill it, then return it.
+            var newArray = [];    // Make an empty array
+        newArray[0] = new ArtEntry('https://lh6.ggpht.com/HlgucZ0ylJAfZgusynnUwxNIgIp5htNhShF559x3dRXiuy_UdP3UQVLYW6c=s1200','Van Gogh', "June 1889",'The Museum of Modern Art', );
+        newArray[1] = new ArtEntry("https://upload.wikimedia.org/wikipedia/commons/a/a8/Nighthawks_by_Edward_Hopper_1942.jpg",'Edward Hopper', 1942,"School of the Art Institute of Chicago",)
+        newArray[2] = new ArtEntry("https://www.biographyonline.net/wp-content/uploads/2014/05/Mona-Lisa.jpg.webp",'Leonardo Da Vinci', 1503, "Louvre Museum", );  
+        newArray[3] = new ArtEntry("https://www.biographyonline.net/wp-content/uploads/2014/05/Monet_Water_Lilies_19161.jpg.webp",'Claude Monet',1916, "Giverny", );  
+        newArray[4] = new ArtEntry("https://www.biographyonline.net/wp-content/uploads/2014/05/Michelangelos_David1.jpg.webp","Michelangelo",1501-1504, "Academia Gallery", );  
+        newArray[5] = new ArtEntry("https://www.biographyonline.net/wp-content/uploads/2014/05/Van_Gogh_starry-night1.jpg.webp","Van Gogh",1889, "The MoMA", );  
+        newArray[6] = new ArtEntry("https://www.biographyonline.net/wp-content/uploads/2014/05/bernini-theresa_021.jpg.webp","Bernini",1647-1652, "The Church of Santa Maria della Vittora", );
+        newArray[7] = new ArtEntry("https://www.biographyonline.net/wp-content/uploads/2014/05/Vermeer_The_Girl_With_The_Pearl_Earring_16651.jpg.webp","Jan Vermeer",1665, "Mauritshuis", );
+        newArray[8] = new ArtEntry("https://www.biographyonline.net/wp-content/uploads/2014/05/Rembrandt_jewish-bride1.jpg.webp","Rembrandt", 1665, "Rijksmuseum", );
+        newArray[9] = new ArtEntry("https://upload.wikimedia.org/wikipedia/en/5/5e/Pablo_Picasso%2C_1909%2C_Head_of_a_Woman_%28T%C3%AAte_de_femme%29%2C_oil_on_canvas%2C_60.3_x_51.1_cm%2C_The_Art_Institute_of_Chicago.jpg","Pablo Picasso",1893, "Metropolitan Museum of Art",);
+            return newArray;
+    }
+
+        function imageString(url)
+    {
+        return "<a href='"  + url + "'>" +
+               "<img src='"  + url + "' " + "alt='" + url + "' " + 
+               "height='200'>" + "</a>";
+
+    }
+
+        
+    </script>
+</head>
+
+
+<Body>
+    <div id='output'></div>
+    <script>
+    
+    // Create and print a variable containing a single course entry/record
+    //    (useful for testing the courseEntry constructor function).
+    var anEntry= new ArtEntry("https://www.history.com/.image/ar_1:1%2Cc_fill%2Ccs_srgb%2Cfl_progressive%2Cq_auto:good%2Cw_1200/MTU3ODc4NTk4NjgxNjM0NTI3/hith-art-heists-scream-2.jpg","Edvard Munch", 1893, "National Gallery and Museum Museum, Oslo, Norway", 5);
+    output.innerHTML += toString(anEntry) + "<br>";
+    
+    // Create a variable containing an array of course entries.
+    // NOTE: This variable does NOT need to have the same name
+    //       that is used internally inside makeCourseArray
+    var myArray= makeArtArray();
+    
+    // Print 1st object in the array (course & grade)
+    output.innerHTML += toString(myArray[0]) + "<br>";
+    output.innerHTML += toString(myArray[1]) + "<br>";
+    output.innerHTML += toString(myArray[2]) + "<br>";
+    output.innerHTML += toString(myArray[3]) + "<br>";
+    output.innerHTML += toString(myArray[4]) + "<br>";
+    output.innerHTML += toString(myArray[5]) + "<br>";
+    output.innerHTML += toString(myArray[6]) + "<br>";
+    output.innerHTML += toString(myArray[7]) + "<br>";
+    output.innerHTML += toString(myArray[8]) + "<br>";
+    output.innerHTML += toString(myArray[9]) + "<br>";
+
+    </script>
+</Body>
+</html>

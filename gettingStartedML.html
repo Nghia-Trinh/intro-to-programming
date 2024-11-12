@@ -1,0 +1,62 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+   <!-- This page contains simple JavaScript programming experiments and
+        a Generate a Mad Lib button.
+        Author: Nolan Trinh
+        With assistance from: Dr, Alyce,   (TAs, instructors, classmates)
+    -->
+   <meta charset="UTF-8">
+   <title>Link to Mini-Lab 1: Numbers and Strings</title>
+   <style>
+        input { background-color: #ffc; color: blue; }
+   </style>
+
+    <script>
+
+    /******
+       Function definitions go here, in script tags in the HEAD section.
+     ******/
+
+    // Print experimental output to a dialog box to become comfortable with
+    // strings and numbers, and their basic operations.
+    function runShortExperiment()
+    {
+        // Simple experiments displaying a string and a number
+        //    (Exercises 4-6)
+        alert("Hello, world");      // Output:  Hello, world
+        alert(42);               // Output:  42
+
+        // Experimenting with the + operator in strings and numbers:
+        //    (Exercise 7)
+        alert(3 + 4);            // Output: 7
+        alert("3 + 4");          // Output: 3 + 4
+        alert("3" + "4");        // Output: 34
+        alert("3" + 4);          // Output: 34
+        alert(3 + "4");          // Output: 34
+
+    } // end of runShortExperiment function
+
+    </script>
+
+</head>
+
+<body>
+
+    <!-- HTML content goes inside the BODY tags.  -->
+
+    <h1>Mini-Lab: Getting Started with JavaScript</h1>
+
+    <p>
+    <input type="button" value="Run Experiment" onclick="runShortExperiment()">
+    </p>
+
+    <hr>
+
+    <p id='output'>
+    </p>
+
+    <hr>
+
+</body>
+</html>

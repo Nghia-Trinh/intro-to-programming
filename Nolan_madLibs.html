@@ -1,0 +1,95 @@
+<!DOCTYPE html>
+<html lang="en">
+
+
+<head>
+   <!-- This page contains a Mad Lib program and a button to greet the
+        user by name.
+        Author: Nolan
+        With assistance from: Dr, Alyce; Revaz; Kate.  (TAs, instructors, classmates)
+    -->
+   <meta charset="UTF-8">
+   <title>ML: Getting Started</title>
+   <style>
+        input { background-color: #ffc; color: blue; }
+   </style>
+
+    <script>
+
+    /******
+       Function definitions go here, in script tags in the HEAD section.
+     ******/
+
+    // Greet the user by name.
+    function greetByName()
+    {
+        // Temporary greeting
+        alert("Welcome to my Mad Lib page!");
+
+        // Experiment with setting a variable and then using it.
+        var text = prompt("Tell me your name, and you will soon see it again.");
+        alert("Greetings " + text + ". Nice to meet you!");
+    }
+  // Print last modification date.
+  function setLastModDate()
+    {
+        output1.innerHTML = document.lastModified;
+    }
+    
+
+    // Generate a Mad Lib.
+    function madLib()
+    {
+        // Temporary notification
+        alert("Game of Madlib:");
+        var text = prompt("Please enter a noun: ");
+        var text1 = prompt("Please enter a verb: ");
+        var text2 = prompt("Please enter an adjective: ");
+
+    
+        alert("When I was walking to work today I saw a " + text + "!  It was very " + text2 + " and it made me want to " + text1 + ".");
+        alert (" It's your turn to " + text1 + " over the " + text2 + " " + text + ".")
+
+        //output=document.getElementsById("output")
+        //output.innerHTML= -> this function would help push out what was entered into the id "output" on the homepage.
+
+        output.innerHTML="When I was walking to work today I saw a " + text + "!  It was very" + text2 + " and it made me want to " + text1 + ".";
+        output.innerHTML += " It's your turn to " + text1 +" over the " + text2 + " " + text + ".";
+
+    }
+
+    </script>
+
+</head>
+
+<body>
+
+    <!-- HTML content goes inside the BODY tags.  -->
+
+    <h1>Mini-Lab: Mad Libs</h1>
+    <h3>Tell us who you are first!</h3>
+    
+    <p>
+    <input type="button" value="Generate Greeting" onclick="greetByName()">
+    </p>
+
+    <h3>New game</h3>
+    <p>
+    <input type="button" value="Generate a Mad Lib" onclick="madLib()">
+    </p>
+
+            <!-- calling the new application by the name of id on the homepage --> 
+
+    <hr>
+    <p id="output"> Game output will be here! </p>
+    <hr>
+
+    <hr>
+    <p id="output1">Time date </p>
+    <hr>
+
+
+<script> setLastModDate(); </script>
+
+</body>
+</html>

@@ -1,0 +1,174 @@
+<!doctype html>
+<html>
+<head>
+<!--
+    Today's date: 9/23/2021
+    Student's naame: Nolan
+-->
+<title>Art Gallery Entry</title>
+
+<script>
+function showTestResults()
+{
+    var element;
+    var outputHeading = document.getElementById("testResultsHeading");
+    var outputParagraph = document.getElementById("testResults");
+
+    // Print heading
+    outputHeading.innerHTML = "Test Results";
+    outputParagraph.innerHTML = "";
+
+    // Print form element name/value pairs
+
+        //text
+    element = document.getElementById("postedBy");
+    outputParagraph.innerHTML += element.name + ": " + element.value + "<br>";
+
+
+    element = document.getElementById("artist");
+    outputParagraph.innerHTML += element.name + ": " + element.value + "<br>";
+
+
+    element = document.getElementById("year");
+    outputParagraph.innerHTML += element.name + ": " + element.value + "<br>";
+
+
+    element = document.getElementById("title");
+    outputParagraph.innerHTML += element.name + ": " + element.value + "<br>";
+
+    element = document.getElementById("museum");
+    outputParagraph.innerHTML += element.name + ": " + element.value + "<br>";
+
+        //checkbox
+    element = document.getElementById("includeURL");
+    outputParagraph.innerHTML += element.name + ": " + element.value + "; ";
+    outputParagraph.innerHTML += "checked = " + element.checked + "<br>";
+
+    
+
+        //textarea
+    element = document.getElementById("imageURL");
+    outputParagraph.innerHTML += 
+        "<a href='" + element.value + "'><img src='" + element.value +
+        "'></a> (Click on image to go to imageURL.)<br><br>" +
+        element.name + ": " + element.value + "<br>";
+
+
+
+
+        //radio
+    element = document.getElementById("option1");
+    outputParagraph.innerHTML += element.name + ": " + element.value + "; ";
+    outputParagraph.innerHTML += "checked = " + element.checked + "<br>";
+
+    element = document.getElementById("option2");
+    outputParagraph.innerHTML += element.name + ": " + element.value + "; ";
+    outputParagraph.innerHTML += "checked = " + element.checked + "<br>";
+
+    element = document.getElementById("option3");
+    outputParagraph.innerHTML += element.name + ": " + element.value + "; ";
+    outputParagraph.innerHTML += "checked = " + element.checked + "<br>";
+
+    element = document.getElementById("option4");
+    outputParagraph.innerHTML += element.name + ": " + element.value + "; ";
+    outputParagraph.innerHTML += "checked = " + element.checked + "<br>";
+}
+</script>
+
+</head>
+
+<body>
+<h1>Art Gallery Entry Page</h1>
+<h2>(under development!)</h2>
+
+<form action="http://www.cs.kzoo.edu/cs105/labs/ArtGallery/postEntry.php" method="POST" >
+<!--change the tail of the URL to postEntry.php when doing the test for the last time. the postEntry test is to test the data to the webpage-->
+<input type="submit" name="submit" value="Submit">
+
+
+    <label for="postedBy"> Your Name   </label> 
+    <input type="text" name="postedBy" id="postedBy" size="30">
+    <br>
+    <br>
+
+
+    <label for="artistName"> Artist Name:   </label> 
+    <input type="text" name="artist" id="artist" size="30" >
+    <br>
+    <br>
+    
+
+    <label for="year"> Year:   </label> 
+    <input type="text" name="year" id="year" size="30" >
+    <br>
+    <br>
+
+    <label for="title"> Title:   </label> 
+    <input type="text" name="title" id="title" size="30" >
+    <br>
+    <br>
+
+    <label for="notes"> Notes:  </label> 
+    <textarea id="notes" name="notes" rows="3" columns="10">default text </textarea>
+    <br>
+    <br>
+
+
+    <label for="imageURL"> Image URL:  </label> 
+    <textarea id="imageURL" name="imageURL" rows="3" columns="10">default text </textarea>
+    <br>
+    <br>
+
+
+    <label for="includeURL"> Include URL? :   </label>
+    <input type="checkbox" id="includeURL" name="includeURL" value="submitCh1">
+    <br>
+    <br>
+<!-- radio -->
+ 
+        <a> Medium:  </a> <br>
+    <label for="arttype">Medium </label> <br>
+    <input type="radio" name="medium" id='option1' value='drawing'>Drawing<br>
+    <input type="radio" name="medium" id='option2' value='painting'>Painting<br>
+    <input type="radio" name="medium" id='option3' value='statue'>Statue<br>
+    <input type="radio" name="medium" id='option4' value='other'>Other<br>
+
+
+
+<!-- menu select -->
+    <label for="museum"> Musuem: </label> 
+    <select id="museum" name="museum">
+    <option value="1"> Art Institute of Chicago </option>
+    <option value="2"> Museum of Modern Art </option>
+    <option value="3"> British Museum </option>
+    <option value="4"> Metropolitan Museum of Art </option>
+    <option value="5"> Air Zoo </option>
+    <option value="6"> Automotive Hall of Fame </option>
+    <option value="7"> DeVos Art Museum </option>
+    <option value="8"> Flint Institute of Art </option>
+    <option value="9"> Fort Wayne </option>
+    <option value="10"> Other Options </option>
+
+
+    </select>
+
+
+
+<br><br>
+
+
+    <!-- BUTTON BELOW IS FOR TESTING.
+         EVENTUALLY IT SHOULD BE A SUBMIT BUTTON INSTEAD. -->
+    <input type="button" name="submitTest" value="Submit Test"
+        onclick="showTestResults();">
+
+        <input type="submit" name="submit" value="Submit">
+</form>
+
+<hr>
+
+<h2 id='testResultsHeading'></h2>
+<p id="testResults"></p>
+
+</body>
+</html>

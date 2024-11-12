@@ -1,0 +1,48 @@
+<!DOCTYPE html>
+<html>
+<head>
+   <!-- What is this page about? (Replace this line with appropriate info.)
+        Author: Who is the author? (Replace this line with appropriate info.)
+        With assistance from: Who helped you?  (TAs, instructors, classmates)
+    -->
+   <meta charset="UTF-8">
+   <title>Border/Tab Title</title>
+
+<script>
+
+/******
+   Function definitions go here, in script tags in the HEAD section.
+   Every function should have a comment saying something about what its
+   purpose is (e.g., "Sort students by last name") and what parameters it
+   expects, if any.
+       YOU MAY REPLACE THIS COMMENT BLOCK ONCE YOU HAVE WRITTEN
+       APPROPRIATELY-COMMENTED FUNCTIONS HERE.
+ ******/
+
+
+
+// Print last modification date (called at bottom of page).
+function setLastModDate()
+{
+    lastMod.innerHTML="<em>This page was last updated on " +
+        document.lastModified + ".</em>";
+}
+
+</script>
+
+</head>
+
+<body>
+
+<!-- HTML content goes inside the BODY tags.  -->
+
+
+
+
+<!-- Keep this at the bottom of every page you create.  -->
+<p id="lastMod"></p>
+<script> setLastModDate(); </script>
+
+</body>
+
+</html>

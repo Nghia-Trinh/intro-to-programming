@@ -1,0 +1,73 @@
+<!DOCTYPE html>
+<html>
+
+
+<head>
+   <!-- This page contains a simple JavaScript calculator program.
+        Author: Nolan
+        With assistance from: WHO HELPED YOU?  (TAs, instructors, classmates)
+    -->
+   <meta charset="UTF-8">
+   <title>Calculator</title>
+   <style>
+        input { background-color: #ffc; color: blue; }
+   </style>
+
+
+
+
+    <script>
+    function runShortExperiment()
+    {
+    /******
+       Function definitions go here, in script tags in the HEAD section.
+     ******/
+    /*  NEED A CALCULATOR FUNCTION HERE.  */
+        alert("This is the CALCULATOR.\nPlease enter two numbers where you would like to see added, subtracted, multiplied and divided: ");
+
+        var text1 = prompt("Please give me the first number: ");
+        var text2 = prompt("Please enter the second number: ");
+        
+        text1 = parseFloat(text1);
+        text2 = parseFloat(text2);
+
+        alert("Sum: " + text1 + " + " + text2 + " = " + (text1 + text2) + 
+        "\nSubtract: " + text1 + " - " + text2 + " = " + (text1 - text2) + 
+        "\nProduct: " + text1 + " * " + text2 + " = " + (text1 * text2) + 
+        "\nDivision: " + text1 + " / " + text2 + " = " + (text1/text2) );
+
+        /*alert("Sum: " + text1 + " + " + text2 + " = " + (text1 + text2) );
+        alert("Subtract: " + text1 + " - " + text2 + " = " + (text1 - text2) );
+        alert("Product: " + text1 + " * " + text2 + " = " + (text1 * text2) );
+        alert("Division: " + text1 + " / " + text2 + " = " + (text1/text2) ); */
+        
+        alert("That is the values for the Calculator project, I hope you have a nice day!");
+
+        output_of_calculator.innerHTML="Sum: " + text1 + " + " + text2 + " = " + (text1 + text2) + 
+            "\nSubtract: " + text1 + " - " + text2 + " = " + (text1 - text2) + 
+            "\nProduct: " + text1 + " * " + text2 + " = " + (text1 * text2) + 
+            "\nDivision: " + text1 + " / " + text2 + " = " + (text1/text2);
+    }
+
+    </script>
+
+
+
+
+</head>
+
+<body>
+    <h1>Calculator Page</h1>
+
+    <p>
+        <input type="button" value="Generate Calculator" onclick="runShortExperiment()">
+    </p>
+    
+    
+
+    <div id ="output_of_calculator"></div>
+
+    <hr>
+
+</body>
+</html>

@@ -1,0 +1,78 @@
+<!DOCTYPE html>
+<html>
+<head>
+   <!-- This page contains additional JavaScript programming experiments
+        with numbers and strings.
+        Author: Nolan
+        With assistance from: WHO HELPED YOU?  (TAs, instructors, classmates)
+    -->
+   <meta charset="UTF-8">
+   <title>Numbers ML Follow-up</title>
+   <style>
+        input { background-color: #ffc; color: blue; }
+   </style>
+
+
+
+    <script>
+
+    /******
+       Function definitions go here, in script tags in the HEAD section.
+     ******/
+
+    // Print experimental output to a dialog box to become comfortable with
+    // strings and numbers, and their basic operations.
+    function runShortExperiment()
+    {
+        // Simple experiments displaying a string and a number
+        //    (Repeat of Exercises 4-6 from Mini-Lab 1)
+        alert("Hello, world");      // Output:  Hello, world
+        // alert(42);               // Output:  42
+
+
+
+        
+        // Experimenting with the + operator in strings and numbers:
+        //    (Repeat of Exercise 7 from Mini-Lab 1)
+        alert(3 + 4);            // Output: 7
+        alert("3 + 4");          // Output: 3 + 4
+        alert("3" + "4");        // Output: 34
+        alert("3" + 4);          // Output: 34
+        alert(3 + "4");          // Output: 34
+
+        // Displaying expected and actual results:
+        //    (Exercise 8)
+        alert("Expected Results: 12; Actual Results: " + 3 + 4);    // Expected Results: 12; Actual Results: 34
+        alert("Expected Results: 12; Actual Results: " + (3 + 4));  // Expected Results: 12; Actual Results: 7
+
+        // How are mixed operators evaluated?
+        //    (Exercise 9)
+        alert("Expected Results: 35; Actual Results: " + ((3 + 4) * 5));
+        alert("Expected Results: 23; Actual Results: " + (3 + (4 * 5)));
+        alert("Expected Results: 23; Actual Results: " + (3 + 4 * 5));
+        alert("Expected Results: 17; Actual Results: " + (3 * 4 + 5));
+        alert("Expected Results: 23; Actual Results: " + (3 * 4 + 5 * 2 + 1));
+
+    } // end of runShortExperiment function
+
+    </script>
+
+
+
+
+</head>
+
+<body>
+
+    <!-- HTML content goes inside the BODY tags.  -->
+
+    <h1>Mini-Lab Follow-up: More Working with Numbers</h1>
+
+    <p>
+    <input type="button" value="Run Experiment" onclick="runShortExperiment()">
+    </p>
+
+    <hr>
+
+</body>
+</html>

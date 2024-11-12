@@ -1,0 +1,84 @@
+<!doctype html>
+<html>
+<head>
+
+<title>Art Gallery Entry</title>
+
+<script>
+function showTestResults()
+{
+    var element;
+    var outputHeading = document.getElementById("testResultsHeading");
+    var outputParagraph = document.getElementById("testResults");
+
+    // Print heading
+    outputHeading.innerHTML = "Test Results";
+    outputParagraph.innerHTML = "";
+
+    // Print form element name/value pairs
+    element = document.getElementById("artist");
+    outputParagraph.innerHTML += element.name + ": " + element.value + "<br>";
+
+    element = document.getElementById("includeURL");
+    outputParagraph.innerHTML += element.name + ": " + element.value + "; ";
+    outputParagraph.innerHTML += "checked = " + element.checked + "<br>";
+
+    /*
+
+    element = document.getElementById("imageURL");
+    outputParagraph.innerHTML += 
+        "<a href='" + element.value + "'><img src='" + element.value +
+        "'></a> (Click on image to go to imageURL.)<br><br>" +
+        element.name + ": " + element.value + "<br>";
+
+    element = document.getElementById("option1");
+    outputParagraph.innerHTML += element.name + ": " + element.value + "; ";
+    outputParagraph.innerHTML += "checked = " + element.checked + "<br>";
+
+    element = document.getElementById("option2");
+    outputParagraph.innerHTML += element.name + ": " + element.value + "; ";
+    outputParagraph.innerHTML += "checked = " + element.checked + "<br>";
+
+    */
+}
+</script>
+
+</head>
+
+<body>
+<h1>Art Gallery Entry Page</h1>
+<h2>(under development!)</h2>
+
+<form>
+    <!-- EXAMPLE ELEMENTS -->
+
+    <label for="artist">Artist Name:   </label>
+    <input type="text" name="artistName" id="artist" size="30">
+    <br>
+
+    <!--
+    <input type="radio" name="medium" id='option1' value='drawing'>Drawing<br>
+    <input type="radio" name="medium" id='option2' value='painting'>Painting<br>
+    <input type="radio" name="medium" id='option3' value='statue'>Statue<br>
+    <input type="radio" name="medium" id='option4' value='other'>Other<br>
+    -->
+
+    <label for="includeURL">Include URL?   </label>
+    <input type="checkbox" name="includeURL" id="includeURL" value="yes">
+    <br>
+
+    <!-- NEED ADDITIONAL INPUT ELEMENTS! -->
+
+    <!-- BUTTON BELOW IS FOR TESTING.
+         EVENTUALLY IT SHOULD BE A SUBMIT BUTTON INSTEAD. -->
+    <input type="button" name="submitTest" value="Submit Test"
+        onclick="showTestResults();">
+</form>
+
+<hr>
+
+<h2 id='testResultsHeading'></h2>
+<p id="testResults"></p>
+
+</body>
+</html>

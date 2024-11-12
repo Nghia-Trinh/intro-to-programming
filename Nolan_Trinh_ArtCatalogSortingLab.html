@@ -1,0 +1,261 @@
+<!DOCTYPE html>
+<html>
+    <!--
+        Author name: Nolan
+        Supporters: Dr, Alyce; Marrisa; Revaz; ALeksander; Katie; Adam; Langston
+        Description: art catalog that shows art entries inside of a table, as well as a sort button
+        that displays the pieces by name as well as date
+
+    -->
+
+    <head>
+        <title> Work on Array and For loop</title>
+    <script>
+        function setLastModDate()
+{
+    lastMod.innerHTML="<em>This page was last updated on " +
+        document.lastModified + ".</em>";
+}
+        function ArtEntry(theImageURL, theArtistParameter, theDateParameter, theLocationParameter) 
+    {
+                // Set the attributes of the object from the parameters.
+            this.imageURL = theImageURL;
+            this.artist = theArtistParameter; 
+            this.date = theDateParameter;
+            this.currentLocation = theLocationParameter;
+            this.selected = false;
+    }
+
+        function toString(theRecord)
+    {
+        return "\n" + imageString(theRecord.imageURL) + " " + theRecord.artist + " " + theRecord.date + " " + theRecord.currentLocation + " " + theRecord.selected + "\n";
+    }
+
+        // This function creates an array of course/grade entries.
+        function makeArtArray()       
+    {
+            // Construct the array, fill it, then return it.
+            var newArray = [];    // Make an empty array
+        newArray[0] = new ArtEntry('https://lh6.ggpht.com/HlgucZ0ylJAfZgusynnUwxNIgIp5htNhShF559x3dRXiuy_UdP3UQVLYW6c=s1200','Van Gogh', "June 1889",'The Museum of Modern Art', );
+        newArray[1] = new ArtEntry("https://upload.wikimedia.org/wikipedia/commons/a/a8/Nighthawks_by_Edward_Hopper_1942.jpg",'Edward Hopper', 1942,"School of the Art Institute of Chicago",)
+        newArray[2] = new ArtEntry("https://www.biographyonline.net/wp-content/uploads/2014/05/Mona-Lisa.jpg.webp",'Leonardo Da Vinci', 1503, "Louvre Museum", );  
+        newArray[3] = new ArtEntry("https://www.biographyonline.net/wp-content/uploads/2014/05/Monet_Water_Lilies_19161.jpg.webp",'Claude Monet',1916, "Giverny", );  
+        newArray[4] = new ArtEntry("https://www.biographyonline.net/wp-content/uploads/2014/05/Michelangelos_David1.jpg.webp","Michelangelo","1501-1504", "Academia Gallery", );  
+        newArray[5] = new ArtEntry("https://www.biographyonline.net/wp-content/uploads/2014/05/Van_Gogh_starry-night1.jpg.webp","Van Gogh",1889, "The MoMA", );  
+        newArray[6] = new ArtEntry("https://www.biographyonline.net/wp-content/uploads/2014/05/bernini-theresa_021.jpg.webp","Bernini","1647-1652", "The Church of Santa Maria della Vittora", );
+        newArray[7] = new ArtEntry("https://www.biographyonline.net/wp-content/uploads/2014/05/Vermeer_The_Girl_With_The_Pearl_Earring_16651.jpg.webp","Jan Vermeer",1665, "Mauritshuis", );
+        newArray[8] = new ArtEntry("https://www.biographyonline.net/wp-content/uploads/2014/05/Rembrandt_jewish-bride1.jpg.webp","Rembrandt", 1665, "Rijksmuseum", );
+        newArray[9] = new ArtEntry("https://upload.wikimedia.org/wikipedia/en/5/5e/Pablo_Picasso%2C_1909%2C_Head_of_a_Woman_%28T%C3%AAte_de_femme%29%2C_oil_on_canvas%2C_60.3_x_51.1_cm%2C_The_Art_Institute_of_Chicago.jpg","Pablo Picasso",1893, "Metropolitan Museum of Art",);
+        return newArray;
+    }
+
+
+        function imageString(url)
+    {
+        return "<a href='"  + url + "'>" +
+               "<img src='"  + url + "' " + "alt='" + url + "' " + 
+               "height='200'>" + "</a>";
+    }
+     
+
+        function catalogArray(catalogArray)
+    {
+        for (var i = 0; i < catalogArray.length; i++)
+        {
+        //output.innerHTML += "i = " + i + "<br>";
+        output.innerHTML += toString(myArray[i]) + "<br>";
+        }
+        
+    }
+
+
+//---------------
+// buildTable
+// This function builds or re-builds a table created in the BODY
+// section of this page.  Each row of the table will contain an entry
+// from the catalogArray, which must contain art catalog entry objects.
+        function buildTable(theTable, catalogArray, addSelected) 
+{
+    // Clear old contents of the table (if any).
+    numRows = theTable.rows.length;
+    for (var i = 0; i < numRows; i++)
+    {
+        // As the # of rows decreases, there is still a row 0.
+        theTable.deleteRow(0);
+    }
+    for(var i=0; i < catalogArray.length ; i++ )
+    {
+        if(addSelected == true){
+            if (catalogArray[i].selected == true){
+                addTableRow(theTable, catalogArray[i]);
+            }
+        }
+        else{
+        addTableRow(theTable, catalogArray[i]);
+        }
+    }
+}
+
+
+        //---------------- 
+        // addTableRow
+        // This function adds an art catalog entry to a new row in the table
+        // passed in as the first parameter.
+        // The second parameter should be a single entry from the art catalog. 
+        function addTableRow (theTable, catalogEntry)
+{
+    
+    // Which row is being added?  Depends on current # of rows in table.
+    var nextRow = theTable.rows.length;
+    var row = theTable.insertRow(nextRow);
+    var cellNum = 0;
+    var cell = row.insertCell(cellNum++);
+
+    var checked = "";  // Checkboxes start out not checked.
+    // Give each checkbox a unique id using the row number.
+
+    // The cells in the row contain the information for one piece of artwork.
+    if(catalogEntry.selected == true){
+        checked = "checked";
+    }
+    cell.innerHTML = "<input type='checkbox' id='check" + nextRow + "' " + checked + " onclick='toggle(this, " + nextRow + ");'>";
+
+    cell = row.insertCell(cellNum++);
+    cell.innerHTML = imageString(catalogEntry.imageURL);
+    cell = row.insertCell(cellNum++);
+    cell.innerHTML = catalogEntry.artist;
+    cell = row.insertCell(cellNum++);
+    cell.innerHTML = catalogEntry.date;
+    cell = row.insertCell(cellNum++);
+    cell.innerHTML = catalogEntry.currentLocation;
+    cell = row.insertCell(cellNum++);
+    cell.innerHTML = catalogEntry.selected;
+
+}
+
+
+//-------------
+// selectionSort - sort an array of items
+/*       function sortbyName(theArray) 
+{
+    // ADD ACTUAL CODE AFTER THE FOLLOWING PSEUDO-CODE:
+    // For each item in the array,
+    //    find the smallest item in the array starting at that index and
+    //    swap the current item with that smallest item. 
+    // ==> CODE THAT IMPLEMENTS THE COMMENTS ABOVE GOES HERE
+for(var x = 0; x < theArray.length; x++ ){
+    minIndex = x;
+    minValue=theArray[x];
+    for(var y = x; y <theArray.length; y++ ){
+        if(theArray[y]<minValue){
+            minValue = theArray[y];
+            minIndex = y
+
+            var temp = theArray[x];
+            theArray[x] = theArray[y];
+            theArray[y] = temp;
+        }
+    }
+    
+}*/
+function sortbyName(theArray) 
+{
+for(var x = 0; x < theArray.length; x++ ){
+    minIndex = x;
+    minValue=theArray[x].artist;
+    for(var y = x; y <theArray.length; y++ ){
+        if(theArray[y].artist<minValue){
+            minValue = theArray[y].artist;
+            minIndex = y
+
+            var temp = theArray[x];
+            theArray[x] = theArray[y];
+            theArray[y] = temp;
+        }
+    } 
+}
+}
+function sortbyDate(theArray) 
+{
+for(var x = 0; x < theArray.length; x++ ){
+    minIndex = x;
+    minValue=theArray[x].date;
+    for(var y = x; y <theArray.length; y++ ){
+        if(theArray[y].date<minValue){
+            minValue = theArray[y].date;
+            minIndex = y
+
+            var temp = theArray[x];
+            theArray[x] = theArray[y];
+            theArray[y] = temp;
+        } 
+    } 
+}
+/*
+
+    var minIndex = index1;
+    var minValue = theArray[index1];
+
+    for ( var i = index1; i < theArray.length; i++)
+    {
+        minValue = theArray[i];
+        minIndex = i;
+        if(theArray[i] < minValue){
+            
+            var temp = theArray[index1];
+            theArray[index1] = theArray[index2];
+            theArray[index2] = temp;
+        }
+    }
+    return minIndex;
+    */
+}
+function toggle(checkbox, rowNumber)
+{
+    // Use the array name from the BODY section.  (might not be myArray)
+    var catalogArray = myArray;
+    if( catalogArray[rowNumber].selected == true ){
+    checkbox.id = "unchecked" + rowNumber;
+    catalogArray[rowNumber].selected = false;
+    }
+    else{
+    checkbox.id = "checked" + rowNumber;
+    catalogArray[rowNumber].selected = true;
+    }
+    // DO SOMETHING USEFUL HERE
+}
+
+    </script>
+    </head>
+    <body>
+
+
+    <p>
+        <h1>Art Catalog</h1>
+    
+    <table border="1" style="margin-left: auto; margin-right: auto;" id="theTable"></table>
+    
+
+
+    <script>
+    var myArray= makeArtArray();
+    //catalogArray(myArray);
+    buildTable(theTable, myArray);
+    </script>
+    
+
+    <div id='output'></div>
+    <label for="sort">Name: </label>
+    <input type="button" name="sort" id="sort" onclick="sortbyName(myArray); buildTable(theTable, myArray, false)"></div>
+    <label for="date">Date: </label>
+    <input type="button" name="date" id="date" onclick="sortbyDate(myArray); buildTable(theTable, myArray, false)"></div>
+
+    <p id="lastMod"></p>
+    <script> setLastModDate(); </script>
+
+
+    <table border="1" style="margin-left: auto; margin-right: auto;" id="newTable"></table>
+    <input type="button" name="list" id="artlist" onclick="buildTable(newTable, myArray, true)"></div>
+
+</body>
+</html>

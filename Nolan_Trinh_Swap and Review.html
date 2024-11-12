@@ -1,0 +1,117 @@
+<!DOCTYPE html>
+<html>
+<head>
+   <!-- What is this page about? The Swap and FindMin functions
+        Author: Who is the author? (Replace this line with appropriate info.)
+        With assistance from: Who helped you?  (TAs, instructors, classmates)
+    -->
+   <meta charset="UTF-8">
+   <title>Border/Tab Title</title>
+
+<script>
+function setLastModDate()
+{
+    lastMod.innerHTML="<em>This page was last updated on " +
+        document.lastModified + ".</em>";
+}
+function swap(theArray, index1, index2) 
+{
+    // REPLACE THE FOLLOWING PSEUDO-CODE WITH ACTUAL CODE
+    //   Save the value at index1 in the array to a temporary variable. 
+    //   Copy the value at index2 to position index1. 
+    //   Copy the temporary value into the array at index2. 
+    var temp = theArray[index1];
+    theArray[index1] = theArray[index2];
+    theArray[index2] = temp;
+    
+}
+
+
+
+
+// findMinIndex - Returns the index of the smallest item in the array
+function findMinIndex(theArray,startIndex)
+{
+   // minValue stores the smallest value seen so far.
+   var minValue = theArray[startIndex];
+
+   // minIndex stores the INDEX of the smallest value seen so far. 
+   var minIndex = startIndex;
+
+   // FUNCTION NOT FINISHED! 
+   // THERE SHOULD BE A FOR LOOP HERE TO SEE IF THERE IS A SMALLER VALUE IN THE ARRAY.
+   // WHEN A SMALLER VALUE IS DETECTED, CHANGE minValue AND minIndex.
+   //compaare arr to testing arr]
+   //.length returns num of the element
+
+    for (var x = startIndex ; x < theArray.length; x++)
+    {
+        if (theArray[x]<minValue){
+            minValue = theArray[x];
+            minIndex = x
+        }
+
+    }
+   return minIndex;
+}
+
+</script>
+</head>
+
+<body>
+
+<script> //Array test print
+    var names = ["Tom", "Dick", "Harry"]
+    alert(names);   // Expected results: "Tom,Dick,Harry" in an alert box.
+    for ( var i = 0; i < names.length; i++ )
+    {
+        alert("i = " + i + "; names[" + i + "] = " + names[i]);
+           // Expected results: 3 alert boxes;
+           //   the first should say "i = 0; names[0] = Tom"
+    }
+</script>
+
+
+<script> //Test Swap fuction
+// Put after the "Tom, Dick, Harry" for loop....
+
+swap(names, 0, 1);
+alert(names);   // Expected results: "Dick,Tom,Harry" in an alert box.
+
+var numbers = [0, -3, 22, 8];
+alert(numbers);   // Expected results: "0,-3,22,8"
+
+swap(numbers, 0, 3);
+alert(numbers);   // Expected results: "22, -3, 0, 8"
+
+swap(numbers, 0, 4);
+alert(numbers);   // Expected results: "error"
+</script>
+
+
+
+<script> //Test Min function
+//var minIndex = findMinIndex(names);
+//alert(minIndex);   // Expected results: ???
+
+////var minIndex = findMinIndex(numbers);
+//alert(minIndex);   // Expected results: ???
+
+var letters = ["g", "a", "t", "c"];
+alert(letters);   // Expected results: "g,a,t,c"
+                                     //            ["g", "a", "t", "c"];
+                                     //              ↑         ↑
+var tmp1  = findMinIndex(letters, 0); // Starts here--'         |
+var tmp2  = findMinIndex(letters, 2); // Starts here------------'
+
+alert(tmp1);   // Expected results: "1" ("a" was minimum)
+alert(tmp2);   // Expected results: "3" ("c" was minimum)
+</script>
+
+
+<!-- Keep this at the bottom of every page you create.  -->
+<p id="lastMod"></p>
+<script> setLastModDate(); </script>
+
+</body>
+</html>
